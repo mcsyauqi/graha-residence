@@ -1,393 +1,318 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  MessageCircle,
-  Clock,
-  Send,
-  CheckCircle,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
-import { companyInfo, projects } from "@/lib/data";
-
-const contactSchema = z.object({
-  name: z.string().min(2, "Nama minimal 2 karakter"),
-  phone: z.string().min(10, "Nomor telepon tidak valid"),
-  email: z.string().email("Email tidak valid"),
-  project: z.string().optional(),
-  message: z.string().min(10, "Pesan minimal 10 karakter"),
-});
-
-type ContactForm = z.infer<typeof contactSchema>;
-
-const faqs = [
-  {
-    q: "Bagaimana cara melakukan booking unit?",
-    a: "Anda dapat melakukan booking dengan membayar booking fee mulai dari Rp 5 juta. Hubungi marketing kami untuk informasi lebih detail.",
-  },
-  {
-    q: "Apakah bisa KPR dengan DP 0%?",
-    a: "Ya, kami memiliki program DP 0% dengan bank rekanan tertentu. Syarat dan ketentuan berlaku.",
-  },
-  {
-    q: "Berapa lama proses KPR?",
-    a: "Proses KPR biasanya memakan waktu 2-4 minggu tergantung kelengkapan dokumen dan kebijakan bank.",
-  },
-  {
-    q: "Apakah ada biaya tambahan selain harga rumah?",
-    a: "Biaya tambahan meliputi BPHTB, AJB, biaya KPR (jika menggunakan KPR). Beberapa biaya ini bisa gratis dengan promo yang sedang berlaku.",
-  },
-  {
-    q: "Kapan serah terima unit?",
-    a: "Waktu serah terima tergantung status proyek. Untuk unit ready stock, serah terima bisa dilakukan setelah proses administrasi selesai.",
-  },
-  {
-    q: "Apakah bisa survei lokasi terlebih dahulu?",
-    a: "Tentu! Kami sangat menyarankan Anda untuk survei lokasi dan melihat show unit. Hubungi marketing untuk jadwalkan kunjungan.",
-  },
-];
+import { MapPin, Phone, Mail, MessageCircle, Clock, Send, CheckCircle } from "lucide-react";
+import { companyInfo } from "@/lib/data";
 
 export default function HubungiPage() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
-  } = useForm<ContactForm>({
-    resolver: zodResolver(contactSchema),
+  const [formData, setFormData] = useState({
+    nama: "",
+    email: "",
+    telepon: "",
+    proyek: "",
+    pesan: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const onSubmit = async (data: ContactForm) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
-    setIsSubmitted(true);
-    reset();
-    setTimeout(() => setIsSubmitted(false), 5000);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData({ nama: "", email: "", telepon: "", proyek: "", pesan: "" });
+    }, 1500);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-navy-gradient">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-white font-heading mb-6">
-              Hubungi Kami
-            </h1>
-            <p className="text-xl text-white/80">
-              Tim marketing kami siap membantu Anda menemukan hunian impian.
-              Jangan ragu untuk menghubungi kami.
-            </p>
-          </motion.div>
+    <div style={{ paddingTop: "80px" }}>
+      {/* Hero */}
+      <section style={{ padding: "60px 0", background: "linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%)" }}>
+        <div className="container" style={{ textAlign: "center" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "8px 16px", backgroundColor: "rgba(201,169,98,0.2)", borderRadius: "20px", marginBottom: "20px" }}>
+            <MessageCircle size={18} color="#C9A962" />
+            <span style={{ color: "#C9A962", fontSize: "14px", fontWeight: "600" }}>Hubungi Kami</span>
+          </div>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "Montserrat" }}>
+            Siap Membantu Anda
+          </h1>
+          <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto" }}>
+            Tim marketing kami siap menjawab pertanyaan dan membantu Anda menemukan hunian impian
+          </p>
         </div>
       </section>
 
-      {/* Contact Info & Form */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-5 gap-12">
+      {/* Contact Info + Form */}
+      <section className="section bg-gray">
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "32px" }} className="contact-grid">
             {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-2"
-            >
-              <h2 className="text-2xl font-bold text-[#1E3A5F] font-heading mb-8">
+            <div>
+              <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "24px", fontFamily: "Montserrat" }}>
                 Informasi Kontak
-              </h2>
+              </h3>
 
-              <div className="space-y-6 mb-10">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#1E3A5F]/10 flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6 text-[#1E3A5F]" />
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "32px" }}>
+                <div className="card" style={{ padding: "20px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
+                  <div style={{ width: "48px", height: "48px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <MapPin size={24} color="#1E3A5F" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-1">
-                      Kantor Pusat
-                    </h3>
-                    <p className="text-[#2D3748]/70">{companyInfo.address}</p>
+                    <h4 style={{ fontSize: "16px", fontWeight: "600", color: "#1E3A5F", marginBottom: "4px" }}>Alamat Kantor</h4>
+                    <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{companyInfo.address}</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#1E3A5F]/10 flex items-center justify-center shrink-0">
-                    <Phone className="w-6 h-6 text-[#1E3A5F]" />
+                <div className="card" style={{ padding: "20px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
+                  <div style={{ width: "48px", height: "48px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <Phone size={24} color="#1E3A5F" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-1">
-                      Telepon
-                    </h3>
-                    <a
-                      href={`tel:${companyInfo.phone.replace(/[^\d]/g, "")}`}
-                      className="text-[#2D3748]/70 hover:text-[#C9A962]"
-                    >
-                      {companyInfo.phone}
-                    </a>
+                    <h4 style={{ fontSize: "16px", fontWeight: "600", color: "#1E3A5F", marginBottom: "4px" }}>Telepon</h4>
+                    <a href="tel:02155512345" style={{ fontSize: "14px", color: "#64748b" }}>{companyInfo.phone}</a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center shrink-0">
-                    <MessageCircle className="w-6 h-6 text-[#25D366]" />
+                <div className="card" style={{ padding: "20px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
+                  <div style={{ width: "48px", height: "48px", backgroundColor: "rgba(74,124,89,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <MessageCircle size={24} color="#4A7C59" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-1">
-                      WhatsApp
-                    </h3>
-                    <a
-                      href="https://wa.me/628111GRAHA"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#2D3748]/70 hover:text-[#25D366]"
-                    >
-                      {companyInfo.whatsapp}
-                    </a>
+                    <h4 style={{ fontSize: "16px", fontWeight: "600", color: "#1E3A5F", marginBottom: "4px" }}>WhatsApp</h4>
+                    <a href="https://wa.me/628111GRAHA" style={{ fontSize: "14px", color: "#4A7C59", fontWeight: "500" }}>{companyInfo.whatsapp}</a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#1E3A5F]/10 flex items-center justify-center shrink-0">
-                    <Mail className="w-6 h-6 text-[#1E3A5F]" />
+                <div className="card" style={{ padding: "20px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
+                  <div style={{ width: "48px", height: "48px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <Mail size={24} color="#1E3A5F" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-1">Email</h3>
-                    <a
-                      href={`mailto:${companyInfo.email}`}
-                      className="text-[#2D3748]/70 hover:text-[#C9A962]"
-                    >
-                      {companyInfo.email}
-                    </a>
+                    <h4 style={{ fontSize: "16px", fontWeight: "600", color: "#1E3A5F", marginBottom: "4px" }}>Email</h4>
+                    <a href={`mailto:${companyInfo.email}`} style={{ fontSize: "14px", color: "#64748b" }}>{companyInfo.email}</a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#1E3A5F]/10 flex items-center justify-center shrink-0">
-                    <Clock className="w-6 h-6 text-[#1E3A5F]" />
+                <div className="card" style={{ padding: "20px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
+                  <div style={{ width: "48px", height: "48px", backgroundColor: "rgba(201,169,98,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <Clock size={24} color="#C9A962" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1E3A5F] mb-1">
-                      Jam Operasional
-                    </h3>
-                    <p className="text-[#2D3748]/70">
-                      Senin - Jumat: 09:00 - 17:00
-                      <br />
-                      Sabtu - Minggu: 09:00 - 15:00
-                    </p>
+                    <h4 style={{ fontSize: "16px", fontWeight: "600", color: "#1E3A5F", marginBottom: "4px" }}>Jam Operasional</h4>
+                    <p style={{ fontSize: "14px", color: "#64748b" }}>Senin - Jumat: 08:00 - 17:00</p>
+                    <p style={{ fontSize: "14px", color: "#64748b" }}>Sabtu - Minggu: 09:00 - 15:00</p>
                   </div>
                 </div>
               </div>
 
-              {/* Quick Contact Buttons */}
-              <div className="space-y-3">
-                <a
-                  href="https://wa.me/628111GRAHA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-4 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#25D366]/90 transition-colors flex items-center justify-center gap-2"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Chat via WhatsApp
-                </a>
-                <a
-                  href="tel:02155512345"
-                  className="w-full py-4 bg-[#1E3A5F] text-white font-semibold rounded-xl hover:bg-[#1E3A5F]/90 transition-colors flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  Telepon Sekarang
-                </a>
-              </div>
-            </motion.div>
+              {/* WhatsApp CTA */}
+              <a
+                href="https://wa.me/628111GRAHA?text=Halo, saya tertarik dengan proyek Graha Residence"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "12px",
+                  width: "100%",
+                  padding: "16px",
+                  backgroundColor: "#25D366",
+                  color: "white",
+                  borderRadius: "12px",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                }}
+              >
+                <MessageCircle size={24} />
+                Chat via WhatsApp
+              </a>
+            </div>
 
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-3"
-            >
-              <div className="bg-[#F8F9FA] rounded-2xl p-8">
-                <h2 className="text-2xl font-bold text-[#1E3A5F] font-heading mb-2">
-                  Kirim Pesan
-                </h2>
-                <p className="text-[#2D3748]/70 mb-8">
-                  Isi form berikut dan tim kami akan menghubungi Anda segera
-                </p>
+            {/* Form */}
+            <div className="card" style={{ padding: "32px" }}>
+              <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "Montserrat" }}>
+                Kirim Pesan
+              </h3>
+              <p style={{ fontSize: "14px", color: "#64748b", marginBottom: "28px" }}>
+                Isi formulir di bawah dan tim kami akan menghubungi Anda
+              </p>
 
-                {isSubmitted ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-12"
+              {isSubmitted ? (
+                <div style={{ textAlign: "center", padding: "40px 0" }}>
+                  <div style={{ width: "80px", height: "80px", backgroundColor: "rgba(74,124,89,0.1)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
+                    <CheckCircle size={40} color="#4A7C59" />
+                  </div>
+                  <h4 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "Montserrat" }}>
+                    Pesan Terkirim!
+                  </h4>
+                  <p style={{ fontSize: "15px", color: "#64748b", marginBottom: "24px" }}>
+                    Terima kasih telah menghubungi kami. Tim marketing akan segera membalas pesan Anda.
+                  </p>
+                  <button
+                    onClick={() => setIsSubmitted(false)}
+                    style={{ padding: "12px 24px", backgroundColor: "#1E3A5F", color: "white", border: "none", borderRadius: "8px", fontWeight: "600", cursor: "pointer" }}
                   >
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#4A7C59]/10 flex items-center justify-center">
-                      <CheckCircle className="w-10 h-10 text-[#4A7C59]" />
-                    </div>
-                    <h3 className="text-xl font-bold text-[#1E3A5F] mb-2">
-                      Pesan Terkirim!
-                    </h3>
-                    <p className="text-[#2D3748]/70">
-                      Terima kasih telah menghubungi kami. Tim marketing kami
-                      akan segera menghubungi Anda.
-                    </p>
-                  </motion.div>
-                ) : (
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-medium text-[#2D3748] mb-2">
-                          Nama Lengkap *
-                        </label>
-                        <input
-                          {...register("name")}
-                          type="text"
-                          placeholder="Masukkan nama Anda"
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[#2D3748] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20 focus:border-[#1E3A5F]"
-                        />
-                        {errors.name && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.name.message}
-                          </p>
-                        )}
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-[#2D3748] mb-2">
-                          Nomor Telepon *
-                        </label>
-                        <input
-                          {...register("phone")}
-                          type="tel"
-                          placeholder="08xxxxxxxxxx"
-                          className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[#2D3748] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20 focus:border-[#1E3A5F]"
-                        />
-                        {errors.phone && (
-                          <p className="text-red-500 text-sm mt-1">
-                            {errors.phone.message}
-                          </p>
-                        )}
-                      </div>
-                    </div>
+                    Kirim Pesan Lagi
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <div style={{ marginBottom: "20px" }}>
+                    <label style={{ display: "block", fontSize: "14px", fontWeight: "600", color: "#1E3A5F", marginBottom: "8px" }}>
+                      Nama Lengkap *
+                    </label>
+                    <input
+                      type="text"
+                      name="nama"
+                      value={formData.nama}
+                      onChange={handleChange}
+                      required
+                      placeholder="Masukkan nama lengkap"
+                      style={{
+                        width: "100%",
+                        padding: "14px 16px",
+                        border: "1px solid #e2e8f0",
+                        borderRadius: "10px",
+                        fontSize: "15px",
+                        outline: "none",
+                      }}
+                    />
+                  </div>
 
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "20px" }} className="form-grid">
                     <div>
-                      <label className="block text-sm font-medium text-[#2D3748] mb-2">
+                      <label style={{ display: "block", fontSize: "14px", fontWeight: "600", color: "#1E3A5F", marginBottom: "8px" }}>
                         Email *
                       </label>
                       <input
-                        {...register("email")}
                         type="email"
-                        placeholder="email@example.com"
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[#2D3748] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20 focus:border-[#1E3A5F]"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        placeholder="email@contoh.com"
+                        style={{
+                          width: "100%",
+                          padding: "14px 16px",
+                          border: "1px solid #e2e8f0",
+                          borderRadius: "10px",
+                          fontSize: "15px",
+                          outline: "none",
+                        }}
                       />
-                      {errors.email && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {errors.email.message}
-                        </p>
-                      )}
                     </div>
-
                     <div>
-                      <label className="block text-sm font-medium text-[#2D3748] mb-2">
-                        Proyek yang Diminati
+                      <label style={{ display: "block", fontSize: "14px", fontWeight: "600", color: "#1E3A5F", marginBottom: "8px" }}>
+                        No. Telepon *
                       </label>
-                      <select
-                        {...register("project")}
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[#2D3748] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20 focus:border-[#1E3A5F]"
-                      >
-                        <option value="">Pilih proyek...</option>
-                        {projects.map((project) => (
-                          <option key={project.slug} value={project.slug}>
-                            {project.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-[#2D3748] mb-2">
-                        Pesan *
-                      </label>
-                      <textarea
-                        {...register("message")}
-                        rows={4}
-                        placeholder="Tuliskan pesan atau pertanyaan Anda..."
-                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-[#2D3748] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20 focus:border-[#1E3A5F] resize-none"
+                      <input
+                        type="tel"
+                        name="telepon"
+                        value={formData.telepon}
+                        onChange={handleChange}
+                        required
+                        placeholder="08xxxxxxxxxx"
+                        style={{
+                          width: "100%",
+                          padding: "14px 16px",
+                          border: "1px solid #e2e8f0",
+                          borderRadius: "10px",
+                          fontSize: "15px",
+                          outline: "none",
+                        }}
                       />
-                      {errors.message && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {errors.message.message}
-                        </p>
-                      )}
                     </div>
+                  </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 bg-[#1E3A5F] text-white font-semibold rounded-xl hover:bg-[#1E3A5F]/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  <div style={{ marginBottom: "20px" }}>
+                    <label style={{ display: "block", fontSize: "14px", fontWeight: "600", color: "#1E3A5F", marginBottom: "8px" }}>
+                      Proyek yang Diminati
+                    </label>
+                    <select
+                      name="proyek"
+                      value={formData.proyek}
+                      onChange={handleChange}
+                      style={{
+                        width: "100%",
+                        padding: "14px 16px",
+                        border: "1px solid #e2e8f0",
+                        borderRadius: "10px",
+                        fontSize: "15px",
+                        outline: "none",
+                        backgroundColor: "white",
+                      }}
                     >
-                      {isSubmitting ? (
-                        "Mengirim..."
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5" />
-                          Kirim Pesan
-                        </>
-                      )}
-                    </button>
-                  </form>
-                )}
-              </div>
-            </motion.div>
+                      <option value="">Pilih proyek...</option>
+                      <option value="serpong">Graha Residence Serpong</option>
+                      <option value="bekasi">Graha Residence Bekasi</option>
+                      <option value="depok">Graha Residence Depok</option>
+                      <option value="bogor">Graha Residence Bogor</option>
+                    </select>
+                  </div>
+
+                  <div style={{ marginBottom: "24px" }}>
+                    <label style={{ display: "block", fontSize: "14px", fontWeight: "600", color: "#1E3A5F", marginBottom: "8px" }}>
+                      Pesan *
+                    </label>
+                    <textarea
+                      name="pesan"
+                      value={formData.pesan}
+                      onChange={handleChange}
+                      required
+                      rows={4}
+                      placeholder="Tulis pesan atau pertanyaan Anda..."
+                      style={{
+                        width: "100%",
+                        padding: "14px 16px",
+                        border: "1px solid #e2e8f0",
+                        borderRadius: "10px",
+                        fontSize: "15px",
+                        outline: "none",
+                        resize: "vertical",
+                      }}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn btn-primary"
+                    style={{ width: "100%", opacity: isSubmitting ? 0.7 : 1 }}
+                  >
+                    {isSubmitting ? (
+                      "Mengirim..."
+                    ) : (
+                      <>
+                        <Send size={20} />
+                        Kirim Pesan
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-[#F8F9FA]">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] font-heading mb-4">
-              Lokasi Kantor
-            </h2>
-            <p className="text-lg text-[#2D3748]/70 max-w-2xl mx-auto">
-              Kunjungi kantor pusat kami untuk konsultasi langsung dengan tim
-              marketing
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl overflow-hidden shadow-lg h-[400px] bg-gray-200"
-          >
+      <section className="section bg-white">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Lokasi</span>
+            <h2 className="section-title">Kantor Pusat Kami</h2>
+          </div>
+          <div style={{ borderRadius: "16px", overflow: "hidden", height: "400px", backgroundColor: "#e2e8f0" }}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2904548899573!2d106.82104081537428!3d-6.224771962704675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e23c82c745%3A0xf6e57f8813e6e47d!2sJl.%20Jend.%20Sudirman%20No.Kav%2052-53%2C%20RT.5%2FRW.3%2C%20Senayan%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012190!5e0!3m2!1sid!2sid!4v1703123456789!5m2!1sid!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2894!2d106.8023!3d-6.2256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTMnMzIuMiJTIDEwNsKwNDgnMDguMyJF!5e0!3m2!1sen!2sid!4v1234567890"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -395,67 +320,22 @@ export default function HubungiPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-white">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] font-heading mb-4">
-              Pertanyaan yang Sering Diajukan
-            </h2>
-            <p className="text-lg text-[#2D3748]/70 max-w-2xl mx-auto">
-              Temukan jawaban untuk pertanyaan umum seputar pembelian rumah di
-              Graha Residence
-            </p>
-          </motion.div>
-
-          <div className="max-w-3xl mx-auto">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="border-b border-gray-200"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full py-6 flex items-center justify-between text-left"
-                >
-                  <span className="text-lg font-semibold text-[#1E3A5F] pr-4">
-                    {faq.q}
-                  </span>
-                  {openFaq === index ? (
-                    <ChevronUp className="w-5 h-5 text-[#C9A962] shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-[#C9A962] shrink-0" />
-                  )}
-                </button>
-                {openFaq === index && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="pb-6"
-                  >
-                    <p className="text-[#2D3748]/70">{faq.a}</p>
-                  </motion.div>
-                )}
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        @media (min-width: 768px) {
+          .contact-grid {
+            grid-template-columns: 1fr 1.2fr !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .form-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

@@ -1,331 +1,120 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  Award,
-  Users,
-  Building,
-  Target,
-  Eye,
-  Heart,
-  Lightbulb,
-  Shield,
-} from "lucide-react";
-import { companyInfo } from "@/lib/data";
-
-const stats = [
-  {
-    icon: Building,
-    value: "15+",
-    label: "Proyek Selesai",
-  },
-  {
-    icon: Users,
-    value: "20.000+",
-    label: "Unit Terjual",
-  },
-  {
-    icon: Award,
-    value: "19",
-    label: "Tahun Pengalaman",
-  },
-  {
-    icon: Heart,
-    value: "98%",
-    label: "Kepuasan Pelanggan",
-  },
-];
-
-const timeline = [
-  {
-    year: "2005",
-    title: "Awal Pendirian",
-    description:
-      "PT Graha Residence Indonesia didirikan dengan visi membangun hunian berkualitas untuk keluarga Indonesia.",
-  },
-  {
-    year: "2010",
-    title: "Ekspansi Pertama",
-    description:
-      "Meluncurkan proyek pertama di kawasan Serpong dengan 500 unit rumah yang terjual habis.",
-  },
-  {
-    year: "2015",
-    title: "Pertumbuhan Pesat",
-    description:
-      "Memperluas jangkauan ke Bekasi dan Depok dengan total 5.000+ unit terjual.",
-  },
-  {
-    year: "2020",
-    title: "Inovasi Digital",
-    description:
-      "Mengadopsi teknologi digital untuk kemudahan konsumen dalam proses pembelian rumah.",
-  },
-  {
-    year: "2025",
-    title: "Menuju Masa Depan",
-    description:
-      "Meluncurkan proyek baru di Bogor dan terus berkomitmen memberikan hunian terbaik.",
-  },
-];
-
-const valueIcons = {
-  Integritas: Shield,
-  Kualitas: Award,
-  Inovasi: Lightbulb,
-  Kepedulian: Heart,
-};
+import { Award, Users, Building, Heart, Target, Eye, Shield, Lightbulb } from "lucide-react";
 
 export default function TentangPage() {
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-navy-gradient">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-block px-4 py-2 bg-[#C9A962]/20 text-[#C9A962] rounded-full text-sm font-medium mb-6">
+    <div style={{ paddingTop: "80px" }}>
+      {/* Hero */}
+      <section style={{ padding: "60px 0", background: "linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%)" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "48px", alignItems: "center" }} className="about-grid">
+            <div style={{ textAlign: "center" }} className="about-text">
+              <span style={{ display: "inline-block", padding: "8px 16px", backgroundColor: "rgba(201,169,98,0.2)", color: "#C9A962", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "20px" }}>
                 Tentang Kami
               </span>
-              <h1 className="text-4xl md:text-5xl font-bold text-white font-heading mb-6">
-                {companyInfo.name}
+              <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "Montserrat" }}>
+                Graha Residence
               </h1>
-              <p className="text-xl text-white/80 mb-8">
-                {companyInfo.tagline}
+              <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", lineHeight: "1.8" }}>
+                Developer properti terpercaya dengan 19 tahun pengalaman membangun hunian berkualitas untuk keluarga Indonesia. Kami telah dipercaya oleh lebih dari 20.000 keluarga.
               </p>
-              <p className="text-white/70 leading-relaxed">
-                {companyInfo.description} Kami telah dipercaya oleh lebih dari
-                20.000 keluarga Indonesia untuk mewujudkan rumah impian mereka.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative h-[400px] rounded-2xl overflow-hidden"
-            >
-              <Image
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
-                alt="Graha Residence Building"
-                fill
-                className="object-cover"
-              />
-            </motion.div>
+            </div>
+            <div style={{ position: "relative", height: "300px", borderRadius: "16px", overflow: "hidden" }}>
+              <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Building" fill style={{ objectFit: "cover" }} />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white -mt-12 relative z-10">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          >
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-2xl p-6 text-center"
-              >
-                <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-[#1E3A5F]/10 flex items-center justify-center">
-                  <stat.icon className="w-7 h-7 text-[#1E3A5F]" />
+      {/* Stats */}
+      <section style={{ padding: "48px 0", backgroundColor: "white" }}>
+        <div className="container">
+          <div className="grid-4">
+            {[
+              { icon: Building, value: "15+", label: "Proyek Selesai" },
+              { icon: Users, value: "20.000+", label: "Unit Terjual" },
+              { icon: Award, value: "19", label: "Tahun Pengalaman" },
+              { icon: Heart, value: "98%", label: "Kepuasan Pelanggan" },
+            ].map((s, i) => (
+              <div key={i} className="card" style={{ padding: "24px", textAlign: "center" }}>
+                <div style={{ width: "56px", height: "56px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
+                  <s.icon size={28} color="#1E3A5F" />
                 </div>
-                <div className="text-3xl font-bold text-[#1E3A5F] font-heading mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-[#2D3748]/60 text-sm">{stat.label}</div>
+                <div style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "4px", fontFamily: "Montserrat" }}>{s.value}</div>
+                <div style={{ fontSize: "14px", color: "#64748b" }}>{s.label}</div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Vision & Mission */}
-      <section className="py-20 bg-[#F8F9FA]">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Vision */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-white rounded-2xl p-8 shadow-sm"
-            >
-              <div className="w-16 h-16 mb-6 rounded-2xl bg-[#C9A962]/10 flex items-center justify-center">
-                <Eye className="w-8 h-8 text-[#C9A962]" />
+      {/* Vision Mission */}
+      <section className="section bg-gray">
+        <div className="container">
+          <div className="grid-2" style={{ gap: "32px" }}>
+            <div className="card" style={{ padding: "32px" }}>
+              <div style={{ width: "64px", height: "64px", backgroundColor: "rgba(201,169,98,0.1)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "24px" }}>
+                <Eye size={32} color="#C9A962" />
               </div>
-              <h2 className="text-2xl font-bold text-[#1E3A5F] font-heading mb-4">
-                Visi Kami
-              </h2>
-              <p className="text-[#2D3748]/70 leading-relaxed">
-                {companyInfo.vision}
+              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>Visi Kami</h3>
+              <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.7" }}>
+                Menjadi developer properti terdepan yang menghadirkan hunian berkualitas, terjangkau, dan berkelanjutan untuk keluarga Indonesia.
               </p>
-            </motion.div>
-
-            {/* Mission */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-sm"
-            >
-              <div className="w-16 h-16 mb-6 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center">
-                <Target className="w-8 h-8 text-[#1E3A5F]" />
+            </div>
+            <div className="card" style={{ padding: "32px" }}>
+              <div style={{ width: "64px", height: "64px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "24px" }}>
+                <Target size={32} color="#1E3A5F" />
               </div>
-              <h2 className="text-2xl font-bold text-[#1E3A5F] font-heading mb-4">
-                Misi Kami
-              </h2>
-              <ul className="space-y-3">
-                {companyInfo.mission.map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-[#2D3748]/70"
-                  >
-                    <span className="w-6 h-6 rounded-full bg-[#4A7C59] text-white flex items-center justify-center shrink-0 text-sm font-medium mt-0.5">
-                      {index + 1}
-                    </span>
-                    {item}
-                  </li>
-                ))}
+              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>Misi Kami</h3>
+              <ul style={{ fontSize: "15px", color: "#64748b", lineHeight: "2", paddingLeft: "20px" }}>
+                <li>Membangun hunian berkualitas dengan standar konstruksi terbaik</li>
+                <li>Menyediakan skema pembayaran yang fleksibel dan terjangkau</li>
+                <li>Menciptakan lingkungan yang aman, nyaman, dan asri</li>
+                <li>Memberikan pelayanan terbaik sebelum dan sesudah penjualan</li>
               </ul>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] font-heading mb-4">
-              Nilai-Nilai Kami
-            </h2>
-            <p className="text-lg text-[#2D3748]/70 max-w-2xl mx-auto">
-              Prinsip yang kami pegang teguh dalam setiap langkah perjalanan
-              bisnis kami
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {companyInfo.values.map((value, index) => {
-              const IconComponent =
-                valueIcons[value.title as keyof typeof valueIcons] || Shield;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-lg transition-shadow"
-                >
-                  <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-[#1E3A5F] flex items-center justify-center">
-                    <IconComponent className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#1E3A5F] font-heading mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-[#2D3748]/60 text-sm">
-                    {value.description}
-                  </p>
-                </motion.div>
-              );
-            })}
+      <section className="section bg-white">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Prinsip</span>
+            <h2 className="section-title">Nilai-Nilai Kami</h2>
           </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="py-20 bg-[#F8F9FA]">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] font-heading mb-4">
-              Perjalanan Kami
-            </h2>
-            <p className="text-lg text-[#2D3748]/70 max-w-2xl mx-auto">
-              Milestone penting dalam perjalanan Graha Residence
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            {timeline.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex gap-6 mb-8 last:mb-0"
-              >
-                <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-[#1E3A5F] text-white flex items-center justify-center font-bold font-heading shrink-0">
-                    {item.year}
-                  </div>
-                  {index < timeline.length - 1 && (
-                    <div className="w-0.5 h-full bg-[#1E3A5F]/20 mt-4" />
-                  )}
+          <div className="grid-4">
+            {[
+              { icon: Shield, title: "Integritas", desc: "Menjalankan bisnis dengan jujur dan transparan" },
+              { icon: Award, title: "Kualitas", desc: "Mengutamakan standar tertinggi dalam setiap proyek" },
+              { icon: Lightbulb, title: "Inovasi", desc: "Terus berinovasi untuk memenuhi kebutuhan pelanggan" },
+              { icon: Heart, title: "Kepedulian", desc: "Peduli terhadap pelanggan dan lingkungan" },
+            ].map((v, i) => (
+              <div key={i} className="card" style={{ padding: "28px", textAlign: "center" }}>
+                <div style={{ width: "56px", height: "56px", backgroundColor: "#1E3A5F", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
+                  <v.icon size={28} color="white" />
                 </div>
-                <div className="bg-white rounded-2xl p-6 shadow-sm flex-1">
-                  <h3 className="text-xl font-bold text-[#1E3A5F] font-heading mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-[#2D3748]/70">{item.description}</p>
-                </div>
-              </motion.div>
+                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "Montserrat" }}>{v.title}</h4>
+                <p style={{ fontSize: "14px", color: "#64748b" }}>{v.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-navy-gradient">
-        <div className="container-custom text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-heading mb-4">
-              Siap Mewujudkan Rumah Impian?
-            </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Tim kami siap membantu Anda menemukan hunian yang tepat untuk
-              keluarga Anda
-            </p>
-            <a
-              href="https://wa.me/628111GRAHA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#C9A962] text-[#1E3A5F] font-bold rounded-xl hover:bg-[#C9A962]/90 transition-colors"
-            >
-              Hubungi Kami Sekarang
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      <style jsx>{`
+        @media (min-width: 1024px) {
+          .about-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+          .about-text {
+            text-align: left !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

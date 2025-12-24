@@ -1,210 +1,150 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Gift, Calendar, Check, ArrowRight, Clock, Tag } from "lucide-react";
+import { Gift, Clock, CheckCircle, ArrowRight, MessageCircle } from "lucide-react";
 import { promos } from "@/lib/data";
 
 export default function PromoPage() {
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gold-gradient overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-
-        <div className="container-custom relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#1E3A5F]/10 text-[#1E3A5F] rounded-full text-sm font-medium mb-6">
-              <Gift className="w-5 h-5" />
-              Promo Spesial
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1E3A5F] font-heading mb-6">
-              Promo Spesial Akhir Tahun 2025
-            </h1>
-            <p className="text-xl text-[#1E3A5F]/80">
-              Dapatkan berbagai penawaran menarik untuk mewujudkan rumah impian
-              keluarga Anda
-            </p>
-          </motion.div>
+    <div style={{ paddingTop: "80px" }}>
+      {/* Hero */}
+      <section style={{ padding: "60px 0", background: "linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%)" }}>
+        <div className="container" style={{ textAlign: "center" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "8px 16px", backgroundColor: "rgba(201,169,98,0.2)", borderRadius: "20px", marginBottom: "20px" }}>
+            <Gift size={18} color="#C9A962" />
+            <span style={{ color: "#C9A962", fontSize: "14px", fontWeight: "600" }}>Promo Spesial</span>
+          </div>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "Montserrat" }}>
+            Promo & Penawaran Terbaik
+          </h1>
+          <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto" }}>
+            Dapatkan penawaran eksklusif untuk mewujudkan rumah impian Anda
+          </p>
         </div>
       </section>
 
-      {/* Promo List */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <div className="grid gap-8">
-            {promos.map((promo, index) => (
-              <motion.div
-                key={promo.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow"
-              >
-                <div className="grid md:grid-cols-3 gap-0">
-                  {/* Image */}
-                  <div className="relative h-64 md:h-auto">
-                    <Image
-                      src={promo.image}
-                      alt={promo.title}
-                      fill
-                      className="object-cover"
-                    />
-                    {promo.badge && (
-                      <div className="absolute top-4 left-4">
-                        <span className="px-4 py-2 bg-[#C9A962] text-[#1E3A5F] text-sm font-semibold rounded-full">
-                          {promo.badge}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="md:col-span-2 p-6 md:p-8 flex flex-col justify-center">
-                    <div className="flex items-center gap-2 text-[#C9A962] mb-3">
-                      <Tag className="w-5 h-5" />
-                      <span className="text-sm font-medium">Promo Aktif</span>
-                    </div>
-
-                    <h2 className="text-2xl md:text-3xl font-bold text-[#1E3A5F] font-heading mb-4">
-                      {promo.title}
-                    </h2>
-
-                    <p className="text-[#2D3748]/70 text-lg mb-6">
-                      {promo.description}
-                    </p>
-
-                    <div className="flex items-center gap-2 text-[#2D3748]/60 mb-6">
-                      <Calendar className="w-5 h-5" />
-                      <span>Berlaku hingga: <strong className="text-[#1E3A5F]">{promo.validUntil}</strong></span>
-                    </div>
-
-                    {/* Terms */}
-                    <div className="bg-gray-50 rounded-xl p-4 mb-6">
-                      <p className="text-sm font-medium text-[#2D3748] mb-3">
-                        Syarat & Ketentuan:
-                      </p>
-                      <ul className="space-y-2">
-                        {promo.terms.map((term, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-[#2D3748]/70">
-                            <Check className="w-4 h-4 text-[#4A7C59] shrink-0 mt-0.5" />
-                            {term}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <a
-                        href="https://wa.me/628111GRAHA?text=Halo, saya tertarik dengan promo ${promo.title}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#1E3A5F] text-white font-semibold rounded-xl hover:bg-[#1E3A5F]/90 transition-colors"
-                      >
-                        Klaim Promo Ini
-                        <ArrowRight className="w-5 h-5" />
-                      </a>
-                      <Link
-                        href="/proyek"
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-100 text-[#1E3A5F] font-semibold rounded-xl hover:bg-gray-200 transition-colors"
-                      >
-                        Lihat Proyek
-                      </Link>
-                    </div>
+      {/* Main Promos */}
+      <section className="section bg-white">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Terbatas</span>
+            <h2 className="section-title">Promo Berlaku Saat Ini</h2>
+            <p className="section-subtitle">Jangan lewatkan kesempatan emas ini!</p>
+          </div>
+          <div className="grid-2" style={{ gap: "32px" }}>
+            {promos.map((promo, i) => (
+              <div key={i} className="card" style={{ overflow: "hidden" }}>
+                <div style={{ position: "relative", height: "200px" }}>
+                  <Image src={promo.image} alt={promo.title} fill style={{ objectFit: "cover" }} />
+                  <div style={{ position: "absolute", top: "16px", left: "16px", padding: "8px 16px", backgroundColor: "#C9A962", borderRadius: "8px", color: "white", fontSize: "12px", fontWeight: "700" }}>
+                    PROMO
                   </div>
                 </div>
-              </motion.div>
+                <div style={{ padding: "24px" }}>
+                  <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "Montserrat" }}>
+                    {promo.title}
+                  </h3>
+                  <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.6", marginBottom: "16px" }}>
+                    {promo.description}
+                  </p>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#C9A962", fontSize: "14px", fontWeight: "500" }}>
+                    <Clock size={16} />
+                    <span>Berlaku hingga {promo.validUntil}</span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Additional Info */}
-      <section className="py-20 bg-[#F8F9FA]">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] font-heading mb-4">
-              Cara Klaim Promo
-            </h2>
-            <p className="text-lg text-[#2D3748]/70 max-w-2xl mx-auto">
-              Ikuti langkah mudah berikut untuk mendapatkan promo spesial kami
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {[
-              { step: "1", title: "Hubungi Marketing", desc: "Chat via WhatsApp atau telepon" },
-              { step: "2", title: "Pilih Unit", desc: "Tentukan proyek dan tipe rumah" },
-              { step: "3", title: "Booking Fee", desc: "Bayar booking fee untuk reservasi" },
-              { step: "4", title: "Promo Aktif", desc: "Nikmati promo yang berlaku" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#1E3A5F] text-white flex items-center justify-center text-2xl font-bold font-heading">
-                  {item.step}
-                </div>
-                <h3 className="text-lg font-bold text-[#1E3A5F] font-heading mb-2">
-                  {item.title}
+      {/* Highlight */}
+      <section className="section bg-gray">
+        <div className="container">
+          <div style={{ maxWidth: "900px", margin: "0 auto", backgroundColor: "white", borderRadius: "24px", overflow: "hidden", boxShadow: "0 10px 40px rgba(0,0,0,0.1)" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr" }} className="highlight-grid">
+              <div style={{ position: "relative", minHeight: "300px" }}>
+                <Image src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Promo Spesial" fill style={{ objectFit: "cover" }} />
+              </div>
+              <div style={{ padding: "32px" }}>
+                <span style={{ display: "inline-block", padding: "6px 12px", backgroundColor: "#4A7C59", color: "white", borderRadius: "6px", fontSize: "12px", fontWeight: "700", marginBottom: "16px" }}>
+                  PROMO TERBAIK
+                </span>
+                <h3 style={{ fontSize: "26px", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>
+                  DP 0% + Free All-In
                 </h3>
-                <p className="text-[#2D3748]/60 text-sm">{item.desc}</p>
-              </motion.div>
-            ))}
+                <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.7", marginBottom: "24px" }}>
+                  Dapatkan paket promo lengkap untuk pembelian unit baru. Tanpa uang muka dan bebas semua biaya!
+                </p>
+                <div style={{ marginBottom: "24px" }}>
+                  {["DP 0% tanpa syarat rumit", "Gratis BPHTB & AJB", "Gratis biaya KPR bank", "Bonus AC & Water Heater", "Cicilan mulai 5 jutaan/bulan"].map((item, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+                      <CheckCircle size={20} color="#4A7C59" />
+                      <span style={{ fontSize: "14px", color: "#1E3A5F" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <a href="https://wa.me/628111GRAHA?text=Halo, saya tertarik promo DP 0%" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  Klaim Promo Sekarang <ArrowRight size={20} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Terms */}
+      <section className="section bg-white">
+        <div className="container">
+          <div style={{ maxWidth: "700px", margin: "0 auto" }}>
+            <div className="section-header">
+              <span className="section-label">Info</span>
+              <h2 className="section-title">Syarat & Ketentuan</h2>
+            </div>
+            <div style={{ backgroundColor: "#f8fafc", borderRadius: "16px", padding: "32px" }}>
+              <ul style={{ fontSize: "15px", color: "#64748b", lineHeight: "2", paddingLeft: "20px" }}>
+                <li>Promo berlaku untuk unit tertentu dan tidak dapat digabung dengan promo lain</li>
+                <li>Pembeli wajib melakukan booking fee sesuai ketentuan</li>
+                <li>Promo DP 0% berlaku untuk KPR dengan bank rekanan</li>
+                <li>Free BPHTB berlaku untuk harga jual di bawah 2 miliar</li>
+                <li>Bonus AC & Water Heater berlaku untuk tipe unit tertentu</li>
+                <li>Promo dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya</li>
+                <li>Syarat dan ketentuan lengkap dapat ditanyakan ke marketing</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-navy-gradient">
-        <div className="container-custom text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C9A962]/20 text-[#C9A962] rounded-full text-sm font-medium mb-6">
-              <Clock className="w-5 h-5" />
-              Penawaran Terbatas
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-heading mb-4">
-              Jangan Lewatkan Kesempatan Ini!
-            </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Promo ini berlaku untuk waktu terbatas. Hubungi marketing kami
-              sekarang untuk informasi lebih lanjut
-            </p>
-            <a
-              href="https://wa.me/628111GRAHA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#C9A962] text-[#1E3A5F] font-bold rounded-xl hover:bg-[#C9A962]/90 transition-colors"
-            >
-              Hubungi Sekarang
-              <ArrowRight className="w-5 h-5" />
+      <section style={{ padding: "60px 0", background: "linear-gradient(135deg, #C9A962 0%, #E5D4A1 50%, #C9A962 100%)" }}>
+        <div className="container" style={{ textAlign: "center" }}>
+          <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>
+            Tertarik dengan Promo Kami?
+          </h2>
+          <p style={{ fontSize: "16px", color: "#1E3A5F", opacity: 0.8, marginBottom: "28px" }}>
+            Hubungi tim marketing kami untuk informasi lebih lanjut
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
+            <a href="https://wa.me/628111GRAHA" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              <MessageCircle size={20} />
+              Hubungi via WhatsApp
             </a>
-          </motion.div>
+            <Link href="/proyek" className="btn" style={{ backgroundColor: "white", color: "#1E3A5F" }}>
+              Lihat Proyek Kami
+            </Link>
+          </div>
         </div>
       </section>
+
+      <style jsx>{`
+        @media (min-width: 768px) {
+          .highlight-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

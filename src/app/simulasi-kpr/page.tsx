@@ -1,432 +1,181 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import {
-  Calculator,
-  Building,
-  Percent,
-  Clock,
-  TrendingUp,
-  MessageCircle,
-  Check,
-  Info,
-} from "lucide-react";
+import { useState } from "react";
+import { Calculator, MessageCircle, Check } from "lucide-react";
 import { formatCurrency, calculateKPR } from "@/lib/utils";
-import { bankPartners, projects } from "@/lib/data";
+import { bankPartners } from "@/lib/data";
 
 export default function SimulasiKPRPage() {
-  const [hargaProperti, setHargaProperti] = useState(1000000000);
-  const [uangMuka, setUangMuka] = useState(20);
+  const [harga, setHarga] = useState(1000000000);
+  const [dp, setDp] = useState(20);
   const [tenor, setTenor] = useState(15);
-  const [sukuBunga, setSukuBunga] = useState(7);
-  const [selectedProject, setSelectedProject] = useState("");
+  const [bunga, setBunga] = useState(7);
 
-  const result = useMemo(() => {
-    return calculateKPR(hargaProperti, uangMuka, tenor, sukuBunga);
-  }, [hargaProperti, uangMuka, tenor, sukuBunga]);
-
-  const handleProjectChange = (slug: string) => {
-    setSelectedProject(slug);
-    const project = projects.find((p) => p.slug === slug);
-    if (project) {
-      setHargaProperti(project.priceStart);
-    }
-  };
+  const result = calculateKPR(harga, dp, tenor, bunga);
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative py-16 bg-navy-gradient">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C9A962]/20 text-[#C9A962] rounded-full text-sm font-medium mb-6">
-              <Calculator className="w-5 h-5" />
-              Kalkulator KPR
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white font-heading mb-4">
-              Simulasi Kredit Pemilikan Rumah
-            </h1>
-            <p className="text-xl text-white/80">
-              Hitung estimasi cicilan bulanan Anda dengan kalkulator KPR
-              interaktif kami
-            </p>
-          </motion.div>
+    <div style={{ paddingTop: "80px" }}>
+      {/* Hero */}
+      <section style={{ padding: "60px 0", background: "linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%)" }}>
+        <div className="container" style={{ textAlign: "center" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "8px 16px", backgroundColor: "rgba(201,169,98,0.2)", borderRadius: "20px", marginBottom: "20px" }}>
+            <Calculator size={18} color="#C9A962" />
+            <span style={{ color: "#C9A962", fontSize: "14px", fontWeight: "600" }}>Kalkulator KPR</span>
+          </div>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "Montserrat" }}>
+            Simulasi Kredit Pemilikan Rumah
+          </h1>
+          <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto" }}>
+            Hitung estimasi cicilan bulanan Anda dengan kalkulator KPR interaktif
+          </p>
         </div>
       </section>
 
-      {/* Calculator Section */}
-      <section className="py-16 bg-[#F8F9FA]">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-              <div className="grid lg:grid-cols-2">
-                {/* Input Section */}
-                <div className="p-8 lg:p-10">
-                  <h2 className="text-2xl font-bold text-[#1E3A5F] font-heading mb-8">
-                    Detail Simulasi KPR
-                  </h2>
+      {/* Calculator */}
+      <section className="section bg-gray">
+        <div className="container">
+          <div style={{ maxWidth: "900px", margin: "0 auto", backgroundColor: "white", borderRadius: "24px", overflow: "hidden", boxShadow: "0 10px 40px rgba(0,0,0,0.1)" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr" }} className="kpr-grid">
+              {/* Form */}
+              <div style={{ padding: "32px" }}>
+                <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "28px", fontFamily: "Montserrat" }}>Detail Simulasi KPR</h3>
 
-                  {/* Project Selection */}
-                  <div className="mb-8">
-                    <label className="block text-sm font-medium text-[#2D3748] mb-2">
-                      Pilih Proyek (Opsional)
-                    </label>
-                    <select
-                      value={selectedProject}
-                      onChange={(e) => handleProjectChange(e.target.value)}
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-[#2D3748] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20 focus:border-[#1E3A5F]"
-                    >
-                      <option value="">Pilih proyek...</option>
-                      {projects.map((project) => (
-                        <option key={project.slug} value={project.slug}>
-                          {project.name} - {project.priceDisplay}
-                        </option>
-                      ))}
-                    </select>
+                <div style={{ marginBottom: "28px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
+                    <label style={{ fontSize: "14px", fontWeight: "600", color: "#1E3A5F" }}>Harga Properti</label>
+                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#1E3A5F" }}>{formatCurrency(harga)}</span>
                   </div>
-
-                  {/* Harga Properti */}
-                  <div className="mb-8">
-                    <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium text-[#2D3748] flex items-center gap-2">
-                        <Building className="w-4 h-4 text-[#C9A962]" />
-                        Harga Properti
-                      </label>
-                      <span className="text-sm font-semibold text-[#1E3A5F]">
-                        {formatCurrency(hargaProperti)}
-                      </span>
-                    </div>
-                    <input
-                      type="range"
-                      min={500000000}
-                      max={3000000000}
-                      step={50000000}
-                      value={hargaProperti}
-                      onChange={(e) => setHargaProperti(Number(e.target.value))}
-                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#1E3A5F]"
-                    />
-                    <div className="flex justify-between mt-1 text-xs text-[#2D3748]/50">
-                      <span>500 Juta</span>
-                      <span>3 Miliar</span>
-                    </div>
-                  </div>
-
-                  {/* Uang Muka */}
-                  <div className="mb-8">
-                    <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium text-[#2D3748] flex items-center gap-2">
-                        <Percent className="w-4 h-4 text-[#C9A962]" />
-                        Uang Muka (DP)
-                      </label>
-                      <span className="text-sm font-semibold text-[#1E3A5F]">
-                        {uangMuka}% = {formatCurrency(result.totalUangMuka)}
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-5 gap-2">
-                      {[5, 10, 15, 20, 30].map((value) => (
-                        <button
-                          key={value}
-                          onClick={() => setUangMuka(value)}
-                          className={`py-3 rounded-xl font-semibold transition-colors ${
-                            uangMuka === value
-                              ? "bg-[#1E3A5F] text-white"
-                              : "bg-gray-100 text-[#2D3748] hover:bg-gray-200"
-                          }`}
-                        >
-                          {value}%
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Tenor */}
-                  <div className="mb-8">
-                    <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium text-[#2D3748] flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-[#C9A962]" />
-                        Jangka Waktu (Tenor)
-                      </label>
-                      <span className="text-sm font-semibold text-[#1E3A5F]">
-                        {tenor} Tahun ({tenor * 12} bulan)
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-4 gap-2">
-                      {[5, 10, 15, 20].map((value) => (
-                        <button
-                          key={value}
-                          onClick={() => setTenor(value)}
-                          className={`py-3 rounded-xl font-semibold transition-colors ${
-                            tenor === value
-                              ? "bg-[#1E3A5F] text-white"
-                              : "bg-gray-100 text-[#2D3748] hover:bg-gray-200"
-                          }`}
-                        >
-                          {value} Tahun
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Suku Bunga */}
-                  <div>
-                    <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium text-[#2D3748] flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4 text-[#C9A962]" />
-                        Suku Bunga per Tahun
-                      </label>
-                      <span className="text-sm font-semibold text-[#1E3A5F]">
-                        {sukuBunga}%
-                      </span>
-                    </div>
-                    <input
-                      type="range"
-                      min={5}
-                      max={12}
-                      step={0.5}
-                      value={sukuBunga}
-                      onChange={(e) => setSukuBunga(Number(e.target.value))}
-                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#1E3A5F]"
-                    />
-                    <div className="flex justify-between mt-1 text-xs text-[#2D3748]/50">
-                      <span>5%</span>
-                      <span>12%</span>
-                    </div>
+                  <input type="range" min={500000000} max={3000000000} step={50000000} value={harga} onChange={(e) => setHarga(Number(e.target.value))} />
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "#94a3b8", marginTop: "6px" }}>
+                    <span>500 Juta</span>
+                    <span>3 Miliar</span>
                   </div>
                 </div>
 
-                {/* Result Section */}
-                <div className="bg-[#1E3A5F] p-8 lg:p-10 text-white">
-                  <h2 className="text-2xl font-bold font-heading mb-8">
-                    Estimasi Cicilan Anda
-                  </h2>
-
-                  <div className="mb-8">
-                    <p className="text-white/70 text-sm mb-2">
-                      Cicilan Per Bulan
-                    </p>
-                    <p className="text-4xl md:text-5xl font-bold font-heading text-[#C9A962]">
-                      {formatCurrency(result.cicilanPerBulan)}
-                    </p>
+                <div style={{ marginBottom: "28px" }}>
+                  <label style={{ fontSize: "14px", fontWeight: "600", color: "#1E3A5F", display: "block", marginBottom: "10px" }}>Uang Muka (DP): {dp}%</label>
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    {[5, 10, 15, 20, 30].map((v) => (
+                      <button key={v} onClick={() => setDp(v)} style={{ flex: 1, padding: "12px", borderRadius: "10px", border: "none", fontWeight: "600", cursor: "pointer", backgroundColor: dp === v ? "#1E3A5F" : "#f1f5f9", color: dp === v ? "white" : "#1E3A5F" }}>
+                        {v}%
+                      </button>
+                    ))}
                   </div>
+                </div>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex justify-between py-3 border-b border-white/20">
-                      <span className="text-white/70">Harga Properti</span>
-                      <span className="font-semibold">
-                        {formatCurrency(hargaProperti)}
-                      </span>
-                    </div>
-                    <div className="flex justify-between py-3 border-b border-white/20">
-                      <span className="text-white/70">
-                        Total Uang Muka ({uangMuka}%)
-                      </span>
-                      <span className="font-semibold">
-                        {formatCurrency(result.totalUangMuka)}
-                      </span>
-                    </div>
-                    <div className="flex justify-between py-3 border-b border-white/20">
-                      <span className="text-white/70">Total Pinjaman</span>
-                      <span className="font-semibold">
-                        {formatCurrency(result.totalPinjaman)}
-                      </span>
-                    </div>
-                    <div className="flex justify-between py-3 border-b border-white/20">
-                      <span className="text-white/70">Tenor</span>
-                      <span className="font-semibold">
-                        {tenor} Tahun ({tenor * 12} bulan)
-                      </span>
-                    </div>
-                    <div className="flex justify-between py-3">
-                      <span className="text-white/70">Total Pembayaran</span>
-                      <span className="font-semibold text-[#C9A962]">
-                        {formatCurrency(result.totalBayar)}
-                      </span>
-                    </div>
+                <div style={{ marginBottom: "28px" }}>
+                  <label style={{ fontSize: "14px", fontWeight: "600", color: "#1E3A5F", display: "block", marginBottom: "10px" }}>Tenor: {tenor} Tahun</label>
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    {[5, 10, 15, 20].map((v) => (
+                      <button key={v} onClick={() => setTenor(v)} style={{ flex: 1, padding: "12px", borderRadius: "10px", border: "none", fontWeight: "600", cursor: "pointer", backgroundColor: tenor === v ? "#1E3A5F" : "#f1f5f9", color: tenor === v ? "white" : "#1E3A5F" }}>
+                        {v} Th
+                      </button>
+                    ))}
                   </div>
+                </div>
 
-                  <div className="bg-white/10 rounded-xl p-4 mb-6 flex items-start gap-3">
-                    <Info className="w-5 h-5 text-[#C9A962] shrink-0 mt-0.5" />
-                    <p className="text-xs text-white/70">
-                      Simulasi ini bersifat estimasi menggunakan metode anuitas.
-                      Cicilan aktual dapat berbeda tergantung kebijakan bank dan
-                      profil kredit Anda. Belum termasuk biaya asuransi dan
-                      administrasi.
-                    </p>
+                <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
+                    <label style={{ fontSize: "14px", fontWeight: "600", color: "#1E3A5F" }}>Suku Bunga</label>
+                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#1E3A5F" }}>{bunga}% / tahun</span>
                   </div>
-
-                  <a
-                    href="https://wa.me/628111GRAHA?text=Halo, saya tertarik dengan simulasi KPR untuk properti seharga Rp tersebut"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-4 bg-[#C9A962] text-[#1E3A5F] font-bold rounded-xl hover:bg-[#C9A962]/90 transition-colors flex items-center justify-center gap-2"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                    Konsultasi dengan Marketing Kami
-                  </a>
+                  <input type="range" min={5} max={12} step={0.5} value={bunga} onChange={(e) => setBunga(Number(e.target.value))} />
                 </div>
               </div>
+
+              {/* Result */}
+              <div style={{ padding: "32px", backgroundColor: "#1E3A5F", color: "white" }}>
+                <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "28px", fontFamily: "Montserrat", color: "white" }}>Estimasi Cicilan Anda</h3>
+
+                <div style={{ marginBottom: "28px" }}>
+                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "8px" }}>Cicilan Per Bulan</p>
+                  <p style={{ fontSize: "40px", fontWeight: "800", color: "#C9A962", fontFamily: "Montserrat" }}>{formatCurrency(result.cicilanPerBulan)}</p>
+                </div>
+
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.2)", paddingTop: "20px", marginBottom: "28px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "14px" }}>
+                    <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px" }}>Total Uang Muka</span>
+                    <span style={{ fontWeight: "600", fontSize: "14px" }}>{formatCurrency(result.totalUangMuka)}</span>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "14px" }}>
+                    <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px" }}>Total Pinjaman</span>
+                    <span style={{ fontWeight: "600", fontSize: "14px" }}>{formatCurrency(result.totalPinjaman)}</span>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px" }}>Tenor</span>
+                    <span style={{ fontWeight: "600", fontSize: "14px" }}>{tenor} Tahun ({tenor * 12} bulan)</span>
+                  </div>
+                </div>
+
+                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)", marginBottom: "20px" }}>
+                  *Simulasi bersifat estimasi. Cicilan aktual dapat berbeda tergantung kebijakan bank.
+                </p>
+
+                <a href="https://wa.me/628111GRAHA?text=Halo, saya tertarik simulasi KPR" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ width: "100%" }}>
+                  <MessageCircle size={20} />
+                  Konsultasi Sekarang
+                </a>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Bank Partners */}
-      <section id="bank-rekanan" className="py-20 bg-white">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] font-heading mb-4">
-              Bank Rekanan Kami
-            </h2>
-            <p className="text-lg text-[#2D3748]/70 max-w-2xl mx-auto">
-              Kami bekerja sama dengan 15+ bank terkemuka untuk memberikan
-              kemudahan KPR bagi Anda
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4"
-          >
-            {bankPartners.map((bank, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-md transition-shadow"
-              >
-                <span className="text-sm font-medium text-[#2D3748]">
-                  {bank}
-                </span>
+      <section className="section bg-white">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Partner</span>
+            <h2 className="section-title">Bank Rekanan Kami</h2>
+            <p className="section-subtitle">Kami bekerja sama dengan 10+ bank terkemuka untuk kemudahan KPR Anda</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "12px" }}>
+            {bankPartners.map((bank, i) => (
+              <div key={i} style={{ padding: "16px", backgroundColor: "#f8fafc", borderRadius: "12px", textAlign: "center", fontSize: "14px", fontWeight: "500", color: "#1E3A5F" }}>
+                {bank}
               </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* KPR Benefits */}
-      <section className="py-20 bg-[#F8F9FA]">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] font-heading mb-4">
-              Keuntungan KPR di Graha Residence
-            </h2>
-            <p className="text-lg text-[#2D3748]/70 max-w-2xl mx-auto">
-              Kami memudahkan proses KPR Anda dengan berbagai keuntungan
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Proses Cepat",
-                description:
-                  "Proses pengajuan KPR yang cepat dengan bantuan tim kami yang berpengalaman.",
-              },
-              {
-                title: "Bunga Kompetitif",
-                description:
-                  "Dapatkan bunga KPR yang kompetitif dari bank rekanan kami.",
-              },
-              {
-                title: "DP Ringan",
-                description:
-                  "Uang muka mulai dari 5% dengan cicilan yang terjangkau.",
-              },
-              {
-                title: "Tenor Fleksibel",
-                description:
-                  "Pilihan tenor mulai dari 5 hingga 20 tahun sesuai kemampuan Anda.",
-              },
-              {
-                title: "Gratis Biaya Admin",
-                description:
-                  "Program khusus bebas biaya administrasi untuk periode tertentu.",
-              },
-              {
-                title: "Konsultasi Gratis",
-                description:
-                  "Tim marketing kami siap membantu konsultasi KPR tanpa biaya.",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 flex items-start gap-4"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#4A7C59] flex items-center justify-center shrink-0">
-                  <Check className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#1E3A5F] font-heading mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-[#2D3748]/70 text-sm">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-navy-gradient">
-        <div className="container-custom text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-heading mb-4">
-              Siap Mengajukan KPR?
-            </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Tim kami siap membantu proses pengajuan KPR Anda dari awal hingga
-              akhir
-            </p>
-            <a
-              href="https://wa.me/628111GRAHA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#C9A962] text-[#1E3A5F] font-bold rounded-xl hover:bg-[#C9A962]/90 transition-colors"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Konsultasi Sekarang
-            </a>
-          </motion.div>
+      {/* Benefits */}
+      <section className="section bg-gray">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Keuntungan</span>
+            <h2 className="section-title">Keuntungan KPR di Graha Residence</h2>
+          </div>
+          <div className="grid-3">
+            {[
+              { title: "Proses Cepat", desc: "Proses pengajuan KPR yang cepat dengan tim berpengalaman" },
+              { title: "Bunga Kompetitif", desc: "Dapatkan bunga KPR yang kompetitif dari bank rekanan" },
+              { title: "DP Ringan", desc: "Uang muka mulai dari 5% dengan cicilan terjangkau" },
+              { title: "Tenor Fleksibel", desc: "Pilihan tenor mulai dari 5 hingga 20 tahun" },
+              { title: "Gratis Biaya Admin", desc: "Program khusus bebas biaya administrasi" },
+              { title: "Konsultasi Gratis", desc: "Tim marketing siap membantu tanpa biaya" },
+            ].map((b, i) => (
+              <div key={i} className="card" style={{ padding: "24px", display: "flex", gap: "16px" }}>
+                <div style={{ width: "40px", height: "40px", backgroundColor: "#4A7C59", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Check size={20} color="white" />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#1E3A5F", marginBottom: "6px", fontFamily: "Montserrat" }}>{b.title}</h4>
+                  <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{b.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      <style jsx>{`
+        @media (min-width: 768px) {
+          .kpr-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
