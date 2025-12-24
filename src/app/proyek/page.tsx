@@ -11,7 +11,7 @@ export default function ProyekPage() {
       {/* Hero */}
       <section style={{ padding: "60px 0", background: "linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%)" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "Montserrat" }}>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
             Proyek Kami
           </h1>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto" }}>
@@ -43,12 +43,12 @@ export default function ProyekPage() {
                     </div>
 
                     <div style={{ position: "absolute", bottom: "16px", left: "16px" }}>
-                      <span style={{ color: "white", fontWeight: "700", fontSize: "22px", fontFamily: "Montserrat" }}>{project.priceDisplay}</span>
+                      <span style={{ color: "white", fontWeight: "700", fontSize: "22px", fontFamily: "'Playfair Display', serif" }}>{project.priceDisplay}</span>
                     </div>
                   </div>
 
                   <div style={{ padding: "24px" }}>
-                    <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "12px", color: "#1E3A5F", fontFamily: "Montserrat" }}>{project.name}</h3>
+                    <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "12px", color: "#1E3A5F", fontFamily: "'Playfair Display', serif" }}>{project.name}</h3>
                     <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#64748b", fontSize: "14px", marginBottom: "12px" }}>
                       <MapPin size={16} color="#C9A962" />
                       {project.location}

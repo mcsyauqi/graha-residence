@@ -40,7 +40,7 @@ export default function HubungiPage() {
             <MessageCircle size={18} color="#C9A962" />
             <span style={{ color: "#C9A962", fontSize: "14px", fontWeight: "600" }}>Hubungi Kami</span>
           </div>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "Montserrat" }}>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
             Siap Membantu Anda
           </h1>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto" }}>
@@ -55,7 +55,7 @@ export default function HubungiPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "32px" }} className="contact-grid">
             {/* Contact Info */}
             <div>
-              <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "24px", fontFamily: "Montserrat" }}>
+              <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "24px", fontFamily: "'Playfair Display', serif" }}>
                 Informasi Kontak
               </h3>
 
@@ -138,7 +138,7 @@ export default function HubungiPage() {
 
             {/* Form */}
             <div className="card" style={{ padding: "32px" }}>
-              <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "Montserrat" }}>
+              <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>
                 Kirim Pesan
               </h3>
               <p style={{ fontSize: "14px", color: "#64748b", marginBottom: "28px" }}>
@@ -150,7 +150,7 @@ export default function HubungiPage() {
                   <div style={{ width: "80px", height: "80px", backgroundColor: "rgba(74,124,89,0.1)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
                     <CheckCircle size={40} color="#4A7C59" />
                   </div>
-                  <h4 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "Montserrat" }}>
+                  <h4 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Playfair Display', serif" }}>
                     Pesan Terkirim!
                   </h4>
                   <p style={{ fontSize: "15px", color: "#64748b", marginBottom: "24px" }}>

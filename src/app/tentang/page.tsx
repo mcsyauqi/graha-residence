@@ -14,7 +14,7 @@ export default function TentangPage() {
               <span style={{ display: "inline-block", padding: "8px 16px", backgroundColor: "rgba(201,169,98,0.2)", color: "#C9A962", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "20px" }}>
                 Tentang Kami
               </span>
-              <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "Montserrat" }}>
+              <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>
                 Graha Residence
               </h1>
               <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", lineHeight: "1.8" }}>
@@ -42,7 +42,7 @@ export default function TentangPage() {
                 <div style={{ width: "56px", height: "56px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
                   <s.icon size={28} color="#1E3A5F" />
                 </div>
-                <div style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "4px", fontFamily: "Montserrat" }}>{s.value}</div>
+                <div style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "4px", fontFamily: "'Playfair Display', serif" }}>{s.value}</div>
                 <div style={{ fontSize: "14px", color: "#64748b" }}>{s.label}</div>
               </div>
             ))}
@@ -58,7 +58,7 @@ export default function TentangPage() {
               <div style={{ width: "64px", height: "64px", backgroundColor: "rgba(201,169,98,0.1)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "24px" }}>
                 <Eye size={32} color="#C9A962" />
               </div>
-              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>Visi Kami</h3>
+              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>Visi Kami</h3>
               <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.7" }}>
                 Menjadi developer properti terdepan yang menghadirkan hunian berkualitas, terjangkau, dan berkelanjutan untuk keluarga Indonesia.
               </p>
@@ -67,7 +67,7 @@ export default function TentangPage() {
               <div style={{ width: "64px", height: "64px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "24px" }}>
                 <Target size={32} color="#1E3A5F" />
               </div>
-              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>Misi Kami</h3>
+              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>Misi Kami</h3>
               <ul style={{ fontSize: "15px", color: "#64748b", lineHeight: "2", paddingLeft: "20px" }}>
                 <li>Membangun hunian berkualitas dengan standar konstruksi terbaik</li>
                 <li>Menyediakan skema pembayaran yang fleksibel dan terjangkau</li>
@@ -97,7 +97,7 @@ export default function TentangPage() {
                 <div style={{ width: "56px", height: "56px", backgroundColor: "#1E3A5F", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
                   <v.icon size={28} color="white" />
                 </div>
-                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "Montserrat" }}>{v.title}</h4>
+                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{v.title}</h4>
                 <p style={{ fontSize: "14px", color: "#64748b" }}>{v.desc}</p>
               </div>
             ))}

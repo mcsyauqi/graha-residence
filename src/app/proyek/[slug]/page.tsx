@@ -52,7 +52,7 @@ export default function ProjectDetailPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "40px" }} className="detail-grid">
             {/* Main */}
             <div>
-              <h1 style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>{project.name}</h1>
+              <h1 style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>{project.name}</h1>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#64748b", fontSize: "16px", marginBottom: "24px" }}>
                 <MapPin size={20} color="#C9A962" />
                 {project.location}
@@ -61,7 +61,7 @@ export default function ProjectDetailPage() {
 
               {/* Features */}
               <div style={{ backgroundColor: "#f8fafc", padding: "24px", borderRadius: "16px", marginBottom: "32px" }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "20px", fontFamily: "Montserrat" }}>Keunggulan Lokasi</h3>
+                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>Keunggulan Lokasi</h3>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" }}>
                   {project.features.map((f, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -74,7 +74,7 @@ export default function ProjectDetailPage() {
 
               {/* Facilities */}
               <div style={{ marginBottom: "32px" }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>Fasilitas Cluster</h3>
+                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>Fasilitas Cluster</h3>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                   {project.facilities.map((f, i) => (
                     <span key={i} style={{ padding: "8px 16px", backgroundColor: "rgba(30,58,95,0.1)", color: "#1E3A5F", borderRadius: "20px", fontSize: "14px", fontWeight: "500" }}>{f}</span>
@@ -84,13 +84,13 @@ export default function ProjectDetailPage() {
 
               {/* Unit Types */}
               <div>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "20px", fontFamily: "Montserrat" }}>Pilihan Tipe Unit</h3>
+                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>Pilihan Tipe Unit</h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   {project.unitTypes.map((unit, i) => (
                     <div key={i} className="card" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "16px" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "12px" }}>
-                        <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", fontFamily: "Montserrat" }}>{unit.name}</h4>
-                        <span style={{ fontSize: "20px", fontWeight: "700", color: "#C9A962", fontFamily: "Montserrat" }}>{formatCurrency(unit.price)}</span>
+                        <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", fontFamily: "'Playfair Display', serif" }}>{unit.name}</h4>
+                        <span style={{ fontSize: "20px", fontWeight: "700", color: "#C9A962", fontFamily: "'Playfair Display', serif" }}>{formatCurrency(unit.price)}</span>
                       </div>
                       <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
                         <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "14px", color: "#64748b" }}>
@@ -120,7 +120,7 @@ export default function ProjectDetailPage() {
             <div>
               <div className="card" style={{ padding: "24px", position: "sticky", top: "100px" }}>
                 <p style={{ fontSize: "14px", color: "#64748b", marginBottom: "8px" }}>Harga mulai dari</p>
-                <p style={{ fontSize: "28px", fontWeight: "800", color: "#1E3A5F", marginBottom: "24px", fontFamily: "Montserrat" }}>{project.priceDisplay}</p>
+                <p style={{ fontSize: "28px", fontWeight: "800", color: "#1E3A5F", marginBottom: "24px", fontFamily: "'Playfair Display', serif" }}>{project.priceDisplay}</p>
 
                 <div style={{ borderTop: "1px solid #e2e8f0", paddingTop: "20px", marginBottom: "24px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>

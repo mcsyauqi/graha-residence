@@ -14,7 +14,7 @@ export default function FasilitasPage() {
           <span style={{ display: "inline-block", padding: "8px 16px", backgroundColor: "rgba(201,169,98,0.2)", color: "#C9A962", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "20px" }}>
             Fasilitas Premium
           </span>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "Montserrat" }}>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
             Fasilitas Lengkap untuk Kenyamanan Keluarga
           </h1>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto" }}>
@@ -36,7 +36,7 @@ export default function FasilitasPage() {
                 <Image src={f.image} alt={f.name} fill style={{ objectFit: "cover" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(30,58,95,0.95), rgba(30,58,95,0.3))" }} />
                 <div style={{ position: "absolute", bottom: "24px", left: "24px", right: "24px" }}>
-                  <h3 style={{ color: "white", fontSize: "22px", fontWeight: "700", marginBottom: "8px", fontFamily: "Montserrat" }}>{f.name}</h3>
+                  <h3 style={{ color: "white", fontSize: "22px", fontWeight: "700", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{f.name}</h3>
                   <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", lineHeight: "1.6" }}>{f.description}</p>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function FasilitasPage() {
                 <div style={{ width: "56px", height: "56px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
                   <f.icon size={28} color="#1E3A5F" />
                 </div>
-                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "Montserrat" }}>{f.title}</h4>
+                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{f.title}</h4>
                 <p style={{ fontSize: "14px", color: "#64748b" }}>{f.desc}</p>
               </div>
             ))}
@@ -74,7 +74,7 @@ export default function FasilitasPage() {
       {/* CTA */}
       <section style={{ padding: "60px 0", background: "linear-gradient(135deg, #C9A962 0%, #E5D4A1 50%, #C9A962 100%)" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "24px", fontFamily: "Montserrat" }}>
+          <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "24px", fontFamily: "'Playfair Display', serif" }}>
             Tertarik dengan Fasilitas Kami?
           </h2>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>

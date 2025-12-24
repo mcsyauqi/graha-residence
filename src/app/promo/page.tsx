@@ -15,7 +15,7 @@ export default function PromoPage() {
             <Gift size={18} color="#C9A962" />
             <span style={{ color: "#C9A962", fontSize: "14px", fontWeight: "600" }}>Promo Spesial</span>
           </div>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "Montserrat" }}>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
             Promo & Penawaran Terbaik
           </h1>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto" }}>
@@ -42,7 +42,7 @@ export default function PromoPage() {
                   </div>
                 </div>
                 <div style={{ padding: "24px" }}>
-                  <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "Montserrat" }}>
+                  <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Playfair Display', serif" }}>
                     {promo.title}
                   </h3>
                   <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.6", marginBottom: "16px" }}>
@@ -71,7 +71,7 @@ export default function PromoPage() {
                 <span style={{ display: "inline-block", padding: "6px 12px", backgroundColor: "#4A7C59", color: "white", borderRadius: "6px", fontSize: "12px", fontWeight: "700", marginBottom: "16px" }}>
                   PROMO TERBAIK
                 </span>
-                <h3 style={{ fontSize: "26px", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>
+                <h3 style={{ fontSize: "26px", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
                   DP 0% + Free All-In
                 </h3>
                 <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.7", marginBottom: "24px" }}>
@@ -120,7 +120,7 @@ export default function PromoPage() {
       {/* CTA */}
       <section style={{ padding: "60px 0", background: "linear-gradient(135deg, #C9A962 0%, #E5D4A1 50%, #C9A962 100%)" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "Montserrat" }}>
+          <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
             Tertarik dengan Promo Kami?
           </h2>
           <p style={{ fontSize: "16px", color: "#1E3A5F", opacity: 0.8, marginBottom: "28px" }}>
