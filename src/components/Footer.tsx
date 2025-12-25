@@ -30,10 +30,10 @@ export default function Footer() {
                   justifyContent: "center",
                 }}
               >
-                <span style={{ color: "#1E3A5F", fontWeight: "bold", fontSize: "24px", fontFamily: "'Playfair Display', serif" }}>G</span>
+                <span style={{ color: "#1E3A5F", fontWeight: "bold", fontSize: "24px", fontFamily: "'Cormorant Garamond', serif" }}>G</span>
               </div>
               <div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: "700", fontSize: "20px" }}>Graha Residence</div>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: "700", fontSize: "20px" }}>Graha Residence</div>
                 <div style={{ fontSize: "13px", color: "#C9A962" }}>Hunian Impian Keluarga</div>
               </div>
             </Link>
@@ -44,7 +44,7 @@ export default function Footer() {
 
           {/* Proyek */}
           <div>
-            <h4 style={{ fontSize: "16px", fontWeight: "600", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>Proyek</h4>
+            <h4 style={{ fontSize: "16px", fontWeight: "600", marginBottom: "20px", fontFamily: "'Cormorant Garamond', serif" }}>Proyek</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               <Link href="/proyek/graha-residence-serpong" style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px" }}>Graha Serpong</Link>
               <Link href="/proyek/graha-residence-bekasi" style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px" }}>Graha Bekasi</Link>
@@ -56,7 +56,7 @@ export default function Footer() {
 
           {/* Layanan */}
           <div>
-            <h4 style={{ fontSize: "16px", fontWeight: "600", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>Layanan</h4>
+            <h4 style={{ fontSize: "16px", fontWeight: "600", marginBottom: "20px", fontFamily: "'Cormorant Garamond', serif" }}>Layanan</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               <Link href="/simulasi-kpr" style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px" }}>Simulasi KPR</Link>
               <Link href="/promo" style={{ color: "rgba(255,255,255,0.7)", fontSize: "14px" }}>Promo Terkini</Link>
@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Kontak */}
           <div>
-            <h4 style={{ fontSize: "16px", fontWeight: "600", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>Kontak</h4>
+            <h4 style={{ fontSize: "16px", fontWeight: "600", marginBottom: "20px", fontFamily: "'Cormorant Garamond', serif" }}>Kontak</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                 <MapPin size={18} style={{ color: "#C9A962", flexShrink: 0, marginTop: "2px" }} />

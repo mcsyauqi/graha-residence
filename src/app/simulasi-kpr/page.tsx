@@ -22,7 +22,7 @@ export default function SimulasiKPRPage() {
             <Calculator size={18} color="#C9A962" />
             <span style={{ color: "#C9A962", fontSize: "14px", fontWeight: "600" }}>Kalkulator KPR</span>
           </div>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>
             Simulasi Kredit Pemilikan Rumah
           </h1>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto" }}>
@@ -38,7 +38,7 @@ export default function SimulasiKPRPage() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr" }} className="kpr-grid">
               {/* Form */}
               <div style={{ padding: "32px" }}>
-                <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "28px", fontFamily: "'Playfair Display', serif" }}>Detail Simulasi KPR</h3>
+                <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "28px", fontFamily: "'Cormorant Garamond', serif" }}>Detail Simulasi KPR</h3>
 
                 <div style={{ marginBottom: "28px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
@@ -85,11 +85,11 @@ export default function SimulasiKPRPage() {
 
               {/* Result */}
               <div style={{ padding: "32px", backgroundColor: "#1E3A5F", color: "white" }}>
-                <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "28px", fontFamily: "'Playfair Display', serif", color: "white" }}>Estimasi Cicilan Anda</h3>
+                <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "28px", fontFamily: "'Cormorant Garamond', serif", color: "white" }}>Estimasi Cicilan Anda</h3>
 
                 <div style={{ marginBottom: "28px" }}>
                   <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "8px" }}>Cicilan Per Bulan</p>
-                  <p style={{ fontSize: "40px", fontWeight: "800", color: "#C9A962", fontFamily: "'Playfair Display', serif" }}>{formatCurrency(result.cicilanPerBulan)}</p>
+                  <p style={{ fontSize: "40px", fontWeight: "800", color: "#C9A962", fontFamily: "'Cormorant Garamond', serif" }}>{formatCurrency(result.cicilanPerBulan)}</p>
                 </div>
 
                 <div style={{ borderTop: "1px solid rgba(255,255,255,0.2)", paddingTop: "20px", marginBottom: "28px" }}>
@@ -160,7 +160,7 @@ export default function SimulasiKPRPage() {
                   <Check size={20} color="white" />
                 </div>
                 <div>
-                  <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#1E3A5F", marginBottom: "6px", fontFamily: "'Playfair Display', serif" }}>{b.title}</h4>
+                  <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#1E3A5F", marginBottom: "6px", fontFamily: "'Cormorant Garamond', serif" }}>{b.title}</h4>
                   <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{b.desc}</p>
                 </div>
               </div>

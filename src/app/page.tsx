@@ -78,7 +78,7 @@ function HeroSection() {
               color: "white",
               lineHeight: "1.1",
               marginBottom: "24px",
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Cormorant Garamond', serif",
             }}
           >
             Wujudkan Rumah Impian <span style={{ color: "#C9A962" }}>Keluarga Anda</span>
@@ -168,7 +168,7 @@ function HeroSection() {
                   <stat.icon size={24} color="#C9A962" />
                 </div>
                 <div>
-                  <div style={{ fontSize: "24px", fontWeight: "700", color: "white", fontFamily: "'Playfair Display', serif" }}>{stat.value}</div>
+                  <div style={{ fontSize: "24px", fontWeight: "700", color: "white", fontFamily: "'Cormorant Garamond', serif" }}>{stat.value}</div>
                   <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)" }}>{stat.label}</div>
                 </div>
               </div>
@@ -229,12 +229,12 @@ function FeaturedProjects() {
 
                   {/* Price */}
                   <div style={{ position: "absolute", bottom: "12px", left: "12px" }}>
-                    <span style={{ color: "white", fontWeight: "700", fontSize: "18px", fontFamily: "'Playfair Display', serif" }}>{project.priceDisplay}</span>
+                    <span style={{ color: "white", fontWeight: "700", fontSize: "18px", fontFamily: "'Cormorant Garamond', serif" }}>{project.priceDisplay}</span>
                   </div>
                 </div>
 
                 <div style={{ padding: "20px" }}>
-                  <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "8px", color: "#1E3A5F", fontFamily: "'Playfair Display', serif" }}>{project.name}</h3>
+                  <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "8px", color: "#1E3A5F", fontFamily: "'Cormorant Garamond', serif" }}>{project.name}</h3>
                   <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#64748b", fontSize: "14px", marginBottom: "12px" }}>
                     <MapPin size={16} color="#C9A962" />
                     {project.location}
@@ -295,7 +295,7 @@ function WhyChooseUs() {
               >
                 <f.icon size={32} color="#1E3A5F" />
               </div>
-              <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "12px", color: "#1E3A5F", fontFamily: "'Playfair Display', serif" }}>{f.title}</h3>
+              <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "12px", color: "#1E3A5F", fontFamily: "'Cormorant Garamond', serif" }}>{f.title}</h3>
               <p style={{ color: "#64748b", fontSize: "15px", lineHeight: "1.6" }}>{f.desc}</p>
             </div>
           ))}
@@ -321,7 +321,7 @@ function FacilitiesSection() {
               <Image src={f.image} alt={f.name} fill style={{ objectFit: "cover" }} />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(30,58,95,0.9), rgba(30,58,95,0.3))" }} />
               <div style={{ position: "absolute", bottom: "20px", left: "20px", right: "20px" }}>
-                <h3 style={{ color: "white", fontSize: "20px", fontWeight: "700", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{f.name}</h3>
+                <h3 style={{ color: "white", fontSize: "20px", fontWeight: "700", marginBottom: "8px", fontFamily: "'Cormorant Garamond', serif" }}>{f.name}</h3>
                 <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px" }}>{f.description}</p>
               </div>
             </div>
@@ -435,11 +435,11 @@ function KPRCalculator() {
 
             {/* Result */}
             <div style={{ padding: "32px", backgroundColor: "#1E3A5F", color: "white" }}>
-              <h3 style={{ fontSize: "18px", fontWeight: "600", marginBottom: "24px", fontFamily: "'Playfair Display', serif", color: "white" }}>Estimasi Cicilan</h3>
+              <h3 style={{ fontSize: "18px", fontWeight: "600", marginBottom: "24px", fontFamily: "'Cormorant Garamond', serif", color: "white" }}>Estimasi Cicilan</h3>
 
               <div style={{ marginBottom: "24px" }}>
                 <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)", marginBottom: "8px" }}>Cicilan Per Bulan</p>
-                <p style={{ fontSize: "36px", fontWeight: "800", color: "#C9A962", fontFamily: "'Playfair Display', serif" }}>{formatCurrency(result.cicilanPerBulan)}</p>
+                <p style={{ fontSize: "36px", fontWeight: "800", color: "#C9A962", fontFamily: "'Cormorant Garamond', serif" }}>{formatCurrency(result.cicilanPerBulan)}</p>
               </div>
 
               <div style={{ borderTop: "1px solid rgba(255,255,255,0.2)", paddingTop: "20px" }}>
@@ -501,7 +501,7 @@ function PromoSection() {
           <span style={{ fontSize: "14px", fontWeight: "600", color: "#1E3A5F" }}>Promo Terbatas</span>
         </span>
 
-        <h2 style={{ fontSize: "clamp(28px, 5vw, 42px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "32px", fontFamily: "'Playfair Display', serif" }}>
+        <h2 style={{ fontSize: "clamp(28px, 5vw, 42px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "32px", fontFamily: "'Cormorant Garamond', serif" }}>
           Promo Spesial Akhir Tahun 2025
         </h2>
 
@@ -583,7 +583,7 @@ function CTASection() {
   return (
     <section style={{ padding: "80px 0", background: "linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%)" }}>
       <div className="container" style={{ textAlign: "center" }}>
-        <h2 style={{ fontSize: "clamp(28px, 5vw, 42px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
+        <h2 style={{ fontSize: "clamp(28px, 5vw, 42px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>
           Tertarik dengan Proyek Kami?
         </h2>
         <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", marginBottom: "40px", maxWidth: "500px", margin: "0 auto 40px" }}>

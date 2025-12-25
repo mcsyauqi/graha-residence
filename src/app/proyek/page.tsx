@@ -31,7 +31,7 @@ export default function ProyekPage() {
           <span style={{ display: "inline-block", padding: "8px 16px", backgroundColor: "rgba(201,169,98,0.2)", color: "#C9A962", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "20px" }}>
             Koleksi Properti
           </span>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>
             Temukan Hunian Impian Anda
           </h1>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto" }}>
@@ -55,7 +55,7 @@ export default function ProyekPage() {
                   <s.icon size={28} color="#1E3A5F" />
                 </div>
                 <div>
-                  <div style={{ fontSize: "28px", fontWeight: "800", color: "#1E3A5F", fontFamily: "'Playfair Display', serif" }}>{s.value}</div>
+                  <div style={{ fontSize: "28px", fontWeight: "800", color: "#1E3A5F", fontFamily: "'Cormorant Garamond', serif" }}>{s.value}</div>
                   <div style={{ fontSize: "14px", color: "#64748b" }}>{s.label}</div>
                 </div>
               </div>
@@ -135,11 +135,11 @@ export default function ProyekPage() {
                         {project.badge && <span style={{ padding: "6px 14px", fontSize: "12px", fontWeight: "600", borderRadius: "20px", backgroundColor: "#C9A962", color: "#1E3A5F" }}>{project.badge}</span>}
                       </div>
                       <div style={{ position: "absolute", bottom: "16px", left: "16px" }}>
-                        <span style={{ color: "white", fontWeight: "700", fontSize: "22px", fontFamily: "'Playfair Display', serif" }}>{project.priceDisplay}</span>
+                        <span style={{ color: "white", fontWeight: "700", fontSize: "22px", fontFamily: "'Cormorant Garamond', serif" }}>{project.priceDisplay}</span>
                       </div>
                     </div>
                     <div style={{ padding: "24px", flex: 1 }}>
-                      <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "12px", color: "#1E3A5F", fontFamily: "'Playfair Display', serif" }}>{project.name}</h3>
+                      <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "12px", color: "#1E3A5F", fontFamily: "'Cormorant Garamond', serif" }}>{project.name}</h3>
                       <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#64748b", fontSize: "14px", marginBottom: "12px" }}>
                         <MapPin size={16} color="#C9A962" />
                         {project.location}
@@ -186,7 +186,7 @@ export default function ProyekPage() {
                 <div style={{ width: "64px", height: "64px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
                   <s.icon size={32} color="#1E3A5F" />
                 </div>
-                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Playfair Display', serif" }}>{s.title}</h4>
+                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Cormorant Garamond', serif" }}>{s.title}</h4>
                 <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{s.desc}</p>
               </div>
             ))}
@@ -236,7 +236,7 @@ export default function ProyekPage() {
       {/* CTA */}
       <section style={{ padding: "60px 0", background: "linear-gradient(135deg, #C9A962 0%, #E5D4A1 50%, #C9A962 100%)" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
+          <h2 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>
             Butuh Bantuan Memilih Proyek?
           </h2>
           <p style={{ fontSize: "16px", color: "#1E3A5F", opacity: 0.8, marginBottom: "28px" }}>

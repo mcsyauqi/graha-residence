@@ -41,7 +41,7 @@ export default function FasilitasPage() {
               <span style={{ display: "inline-block", padding: "8px 16px", backgroundColor: "rgba(201,169,98,0.2)", color: "#C9A962", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "20px" }}>
                 Fasilitas Premium
               </span>
-              <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>
+              <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "'Cormorant Garamond', serif" }}>
                 Fasilitas Lengkap untuk Kenyamanan Keluarga
               </h1>
               <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto 32px", lineHeight: "1.8" }}>
@@ -54,7 +54,7 @@ export default function FasilitasPage() {
                   { value: "100%", label: "Area Hijau" },
                 ].map((stat, i) => (
                   <div key={i} style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: "32px", fontWeight: "800", color: "#C9A962", fontFamily: "'Playfair Display', serif" }}>{stat.value}</div>
+                    <div style={{ fontSize: "32px", fontWeight: "800", color: "#C9A962", fontFamily: "'Cormorant Garamond', serif" }}>{stat.value}</div>
                     <div style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)" }}>{stat.label}</div>
                   </div>
                 ))}
@@ -81,7 +81,7 @@ export default function FasilitasPage() {
                 <Image src={f.image} alt={f.name} fill style={{ objectFit: "cover" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(30,58,95,0.95), rgba(30,58,95,0.2))" }} />
                 <div style={{ position: "absolute", bottom: "24px", left: "24px", right: "24px" }}>
-                  <h3 style={{ color: "white", fontSize: "24px", fontWeight: "700", marginBottom: "12px", fontFamily: "'Playfair Display', serif" }}>{f.name}</h3>
+                  <h3 style={{ color: "white", fontSize: "24px", fontWeight: "700", marginBottom: "12px", fontFamily: "'Cormorant Garamond', serif" }}>{f.name}</h3>
                   <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "15px", lineHeight: "1.6" }}>{f.description}</p>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function FasilitasPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "48px", alignItems: "center" }} className="security-grid">
             <div>
               <span className="section-label">Keamanan</span>
-              <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>
+              <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "20px", fontFamily: "'Cormorant Garamond', serif" }}>
                 Sistem Keamanan Terpadu
               </h2>
               <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.8", marginBottom: "32px" }}>
@@ -149,7 +149,7 @@ export default function FasilitasPage() {
                 <div style={{ width: "56px", height: "56px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
                   <f.icon size={28} color="#1E3A5F" />
                 </div>
-                <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{f.title}</h4>
+                <h4 style={{ fontSize: "16px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Cormorant Garamond', serif" }}>{f.title}</h4>
                 <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.5" }}>{f.desc}</p>
               </div>
             ))}
@@ -175,7 +175,7 @@ export default function FasilitasPage() {
                   <div style={{ width: "48px", height: "48px", backgroundColor: "rgba(201,169,98,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "16px" }}>
                     <item.icon size={24} color="#C9A962" />
                   </div>
-                  <h4 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{item.title}</h4>
+                  <h4 style={{ fontSize: "20px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Cormorant Garamond', serif" }}>{item.title}</h4>
                   <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{item.desc}</p>
                 </div>
               </div>
@@ -195,7 +195,7 @@ export default function FasilitasPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
             {houseSpecs.map((spec, i) => (
               <div key={i} className="card" style={{ padding: "24px" }}>
-                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>{spec.title}</h4>
+                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>{spec.title}</h4>
                 <ul style={{ margin: 0, paddingLeft: "0", listStyle: "none" }}>
                   {spec.items.map((item, j) => (
                     <li key={j} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
@@ -244,7 +244,7 @@ export default function FasilitasPage() {
       {/* CTA */}
       <section style={{ padding: "80px 0", background: "linear-gradient(135deg, #C9A962 0%, #E5D4A1 50%, #C9A962 100%)" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>
             Ingin Melihat Langsung Fasilitas Kami?
           </h2>
           <p style={{ fontSize: "16px", color: "#1E3A5F", opacity: 0.8, marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>

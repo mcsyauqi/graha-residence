@@ -59,10 +59,10 @@ export default function Header() {
                 justifyContent: "center",
               }}
             >
-              <span style={{ color: "#C9A962", fontWeight: "bold", fontSize: "20px", fontFamily: "'Playfair Display', serif" }}>G</span>
+              <span style={{ color: "#C9A962", fontWeight: "bold", fontSize: "20px", fontFamily: "'Cormorant Garamond', serif" }}>G</span>
             </div>
             <div>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: "700", fontSize: "18px", color: "#1E3A5F" }}>
+              <div style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: "700", fontSize: "18px", color: "#1E3A5F" }}>
                 Graha Residence
               </div>
               <div style={{ fontSize: "12px", color: "#64748b" }}>Hunian Impian Keluarga</div>

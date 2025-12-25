@@ -57,7 +57,7 @@ export default function HubungiPage() {
                 <MessageCircle size={18} color="#C9A962" />
                 <span style={{ color: "#C9A962", fontSize: "14px", fontWeight: "600" }}>Hubungi Kami</span>
               </div>
-              <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>
+              <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "'Cormorant Garamond', serif" }}>
                 Kami Siap Membantu Anda
               </h1>
               <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto 32px", lineHeight: "1.8" }}>
@@ -70,7 +70,7 @@ export default function HubungiPage() {
                   { icon: Award, value: "24/7", label: "Layanan" },
                 ].map((stat, i) => (
                   <div key={i} style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: "32px", fontWeight: "800", color: "#C9A962", fontFamily: "'Playfair Display', serif" }}>{stat.value}</div>
+                    <div style={{ fontSize: "32px", fontWeight: "800", color: "#C9A962", fontFamily: "'Cormorant Garamond', serif" }}>{stat.value}</div>
                     <div style={{ fontSize: "14px", color: "rgba(255,255,255,0.7)" }}>{stat.label}</div>
                   </div>
                 ))}
@@ -122,7 +122,7 @@ export default function HubungiPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "48px" }} className="contact-grid">
             {/* Form */}
             <div className="card" style={{ padding: "40px" }}>
-              <h3 style={{ fontSize: "28px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Playfair Display', serif" }}>
+              <h3 style={{ fontSize: "28px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Cormorant Garamond', serif" }}>
                 Kirim Pesan
               </h3>
               <p style={{ fontSize: "15px", color: "#64748b", marginBottom: "32px" }}>
@@ -134,7 +134,7 @@ export default function HubungiPage() {
                   <div style={{ width: "80px", height: "80px", backgroundColor: "rgba(74,124,89,0.1)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
                     <CheckCircle size={40} color="#4A7C59" />
                   </div>
-                  <h4 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Playfair Display', serif" }}>
+                  <h4 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Cormorant Garamond', serif" }}>
                     Pesan Terkirim!
                   </h4>
                   <p style={{ fontSize: "15px", color: "#64748b", marginBottom: "24px", maxWidth: "400px", margin: "0 auto 24px" }}>
@@ -183,7 +183,7 @@ export default function HubungiPage() {
 
             {/* Info */}
             <div>
-              <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "24px", fontFamily: "'Playfair Display', serif" }}>
+              <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#1E3A5F", marginBottom: "24px", fontFamily: "'Cormorant Garamond', serif" }}>
                 Informasi Kontak
               </h3>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "32px" }}>
@@ -237,7 +237,7 @@ export default function HubungiPage() {
                   <Building size={28} color="#1E3A5F" />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{unit.name}</h4>
+                  <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Cormorant Garamond', serif" }}>{unit.name}</h4>
                   <p style={{ fontSize: "14px", color: "#64748b", marginBottom: "8px" }}>{unit.address}</p>
                   <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "13px", color: "#C9A962" }}>
                     <Clock size={14} />
@@ -321,7 +321,7 @@ export default function HubungiPage() {
       {/* CTA */}
       <section style={{ padding: "80px 0", background: "linear-gradient(135deg, #C9A962 0%, #E5D4A1 50%, #C9A962 100%)" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>
             Siap Wujudkan Rumah Impian?
           </h2>
           <p style={{ fontSize: "16px", color: "#1E3A5F", opacity: 0.8, marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>

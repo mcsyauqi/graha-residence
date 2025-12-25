@@ -44,7 +44,7 @@ export default function TentangPage() {
               <span style={{ display: "inline-block", padding: "8px 16px", backgroundColor: "rgba(201,169,98,0.2)", color: "#C9A962", borderRadius: "20px", fontSize: "14px", fontWeight: "600", marginBottom: "20px" }}>
                 Tentang Kami
               </span>
-              <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>
+              <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "'Cormorant Garamond', serif" }}>
                 Membangun Hunian Impian Sejak 2005
               </h1>
               <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", lineHeight: "1.8", marginBottom: "32px" }}>
@@ -89,7 +89,7 @@ export default function TentangPage() {
                 <div style={{ width: "56px", height: "56px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
                   <s.icon size={28} color="#1E3A5F" />
                 </div>
-                <div style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "4px", fontFamily: "'Playfair Display', serif" }}>{s.value}</div>
+                <div style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "4px", fontFamily: "'Cormorant Garamond', serif" }}>{s.value}</div>
                 <div style={{ fontSize: "14px", color: "#64748b" }}>{s.label}</div>
               </div>
             ))}
@@ -103,7 +103,7 @@ export default function TentangPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "48px", alignItems: "center" }} className="story-grid">
             <div>
               <span className="section-label">Cerita Kami</span>
-              <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "24px", fontFamily: "'Playfair Display', serif" }}>
+              <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#1E3A5F", marginBottom: "24px", fontFamily: "'Cormorant Garamond', serif" }}>
                 Perjalanan Membangun Indonesia
               </h2>
               <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.8", marginBottom: "20px" }}>
@@ -149,7 +149,7 @@ export default function TentangPage() {
               <div key={i} style={{ display: "flex", alignItems: "center", marginBottom: "32px", flexDirection: i % 2 === 0 ? "row" : "row-reverse" }} className="timeline-item">
                 <div style={{ flex: 1, padding: "0 32px", textAlign: i % 2 === 0 ? "right" : "left" }} className="timeline-content">
                   <span style={{ fontSize: "14px", fontWeight: "700", color: "#C9A962" }}>{item.year}</span>
-                  <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{item.title}</h4>
+                  <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Cormorant Garamond', serif" }}>{item.title}</h4>
                   <p style={{ fontSize: "14px", color: "#64748b" }}>{item.desc}</p>
                 </div>
                 <div style={{ width: "16px", height: "16px", backgroundColor: "#1E3A5F", borderRadius: "50%", border: "4px solid white", boxShadow: "0 0 0 4px #e2e8f0", zIndex: 1, flexShrink: 0 }} />
@@ -172,7 +172,7 @@ export default function TentangPage() {
               <div style={{ width: "64px", height: "64px", backgroundColor: "rgba(201,169,98,0.1)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "24px" }}>
                 <Eye size={32} color="#C9A962" />
               </div>
-              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>Visi Kami</h3>
+              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>Visi Kami</h3>
               <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.7" }}>
                 Menjadi developer properti terdepan di Indonesia yang menghadirkan hunian berkualitas tinggi, terjangkau, dan berkelanjutan untuk setiap keluarga Indonesia. Kami berkomitmen untuk terus berinovasi dan memberikan nilai terbaik bagi pelanggan.
               </p>
@@ -181,7 +181,7 @@ export default function TentangPage() {
               <div style={{ width: "64px", height: "64px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "24px" }}>
                 <Target size={32} color="#1E3A5F" />
               </div>
-              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>Misi Kami</h3>
+              <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>Misi Kami</h3>
               <ul style={{ fontSize: "15px", color: "#64748b", lineHeight: "2", paddingLeft: "20px" }}>
                 <li>Membangun hunian berkualitas dengan standar konstruksi terbaik</li>
                 <li>Menyediakan skema pembayaran yang fleksibel dan terjangkau</li>
@@ -212,7 +212,7 @@ export default function TentangPage() {
                 <div style={{ width: "56px", height: "56px", backgroundColor: "#1E3A5F", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
                   <v.icon size={28} color="white" />
                 </div>
-                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{v.title}</h4>
+                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Cormorant Garamond', serif" }}>{v.title}</h4>
                 <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{v.desc}</p>
               </div>
             ))}
@@ -235,7 +235,7 @@ export default function TentangPage() {
                   <Image src={member.image} alt={member.name} fill style={{ objectFit: "cover" }} />
                 </div>
                 <div style={{ padding: "24px" }}>
-                  <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "4px", fontFamily: "'Playfair Display', serif" }}>{member.name}</h4>
+                  <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "4px", fontFamily: "'Cormorant Garamond', serif" }}>{member.name}</h4>
                   <p style={{ fontSize: "14px", color: "#C9A962", fontWeight: "500" }}>{member.role}</p>
                 </div>
               </div>
@@ -290,7 +290,7 @@ export default function TentangPage() {
       {/* CTA */}
       <section style={{ padding: "80px 0", background: "linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%)" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>
             Tertarik Bekerja Sama dengan Kami?
           </h2>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", marginBottom: "32px", maxWidth: "600px", margin: "0 auto 32px" }}>

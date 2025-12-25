@@ -35,7 +35,7 @@ export default function PromoPage() {
                 <Sparkles size={18} color="#C9A962" />
                 <span style={{ color: "#C9A962", fontSize: "14px", fontWeight: "600" }}>Promo Spesial Akhir Tahun</span>
               </div>
-              <h1 style={{ fontSize: "clamp(32px, 5vw, 52px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "'Playfair Display', serif" }}>
+              <h1 style={{ fontSize: "clamp(32px, 5vw, 52px)", fontWeight: "800", color: "white", marginBottom: "20px", fontFamily: "'Cormorant Garamond', serif" }}>
                 Penawaran Terbaik untuk <span style={{ color: "#C9A962" }}>Rumah Impian</span>
               </h1>
               <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", maxWidth: "600px", margin: "0 auto 32px", lineHeight: "1.8" }}>
@@ -75,7 +75,7 @@ export default function PromoPage() {
           <span style={{ display: "inline-block", padding: "8px 16px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "20px", marginBottom: "20px" }}>
             <span style={{ fontSize: "14px", fontWeight: "600", color: "#1E3A5F" }}>🔥 Promo Unggulan</span>
           </span>
-          <h2 style={{ fontSize: "clamp(28px, 5vw, 42px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
+          <h2 style={{ fontSize: "clamp(28px, 5vw, 42px)", fontWeight: "800", color: "#1E3A5F", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>
             DP 0% + Free All-In Cost
           </h2>
           <p style={{ fontSize: "16px", color: "#1E3A5F", opacity: 0.8, marginBottom: "40px", maxWidth: "600px", margin: "0 auto 40px" }}>
@@ -117,7 +117,7 @@ export default function PromoPage() {
                   </div>
                 </div>
                 <div style={{ padding: "28px" }}>
-                  <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Playfair Display', serif" }}>
+                  <h3 style={{ fontSize: "22px", fontWeight: "700", color: "#1E3A5F", marginBottom: "12px", fontFamily: "'Cormorant Garamond', serif" }}>
                     {promo.title}
                   </h3>
                   <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.7", marginBottom: "20px" }}>
@@ -150,7 +150,7 @@ export default function PromoPage() {
                 <div style={{ width: "64px", height: "64px", backgroundColor: "rgba(30,58,95,0.1)", borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
                   <scheme.icon size={32} color="#1E3A5F" />
                 </div>
-                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Playfair Display', serif" }}>{scheme.title}</h4>
+                <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1E3A5F", marginBottom: "8px", fontFamily: "'Cormorant Garamond', serif" }}>{scheme.title}</h4>
                 <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{scheme.desc}</p>
               </div>
             ))}
@@ -244,7 +244,7 @@ export default function PromoPage() {
       {/* CTA */}
       <section style={{ padding: "80px 0", background: "linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%)" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Playfair Display', serif" }}>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", color: "white", marginBottom: "16px", fontFamily: "'Cormorant Garamond', serif" }}>
             Jangan Lewatkan Promo Ini!
           </h2>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
